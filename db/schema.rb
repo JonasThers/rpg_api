@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_12_182229) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_16_190650) do
   create_table "character_classes", force: :cascade do |t|
     t.string "name"
     t.integer "strength"
@@ -27,6 +27,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_12_182229) do
     t.text "background_story"
     t.integer "level", default: 1
     t.integer "experience", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "enemies", force: :cascade do |t|
+    t.string "name"
+    t.integer "strength"
+    t.integer "dexterity"
+    t.integer "wisdom"
+    t.integer "intelligence"
+    t.integer "charisma"
+    t.integer "hit_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
