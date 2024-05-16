@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_16_201401) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_16_201813) do
   create_table "character_classes", force: :cascade do |t|
     t.string "name"
     t.integer "strength"
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_16_201401) do
     t.integer "wisdom"
     t.integer "intelligence"
     t.integer "charisma"
-    t.integer "hit_points"
+    t.integer "hit_points", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_alive", default: true
