@@ -6,20 +6,20 @@ class EnemiesController < ApplicationController
   end
 
   def show
-    character = Enemy.find(params[:id])
+    enemy = Enemy.find(params[:id])
 
-    render json: character
+    render json: enemy
   end
 
   def create
-    character = Enemy.create!(character_params)
-    render json: character, status: :created
+    enemy = Enemy.create!(enemy_params)
+    render json: enemy, status: :created
   end
 
   def update
-    character = Enemy.find(params[:id])
-    character.update!(character_params)
-    render json: character
+    enemy = Enemy.find(params[:id])
+    enemy.update!(enemy_params)
+    render json: enemy
   end
 
   def destroy
@@ -29,7 +29,11 @@ class EnemiesController < ApplicationController
   
   private
   
-  def character_params
+  def enemy_params
     params.permit(:name, :strength, :dexterity, :wisdom, :intelligence, :charisma, :hit_points)
+  end
+
+  def inflict_damage
+
   end
 end

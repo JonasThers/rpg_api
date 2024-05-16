@@ -6,20 +6,20 @@ class NonPlayableCharactersController < ApplicationController
   end
 
   def show
-    character = NonPlayableCharacter.find(params[:id])
+    non_playable_character = NonPlayableCharacter.find(params[:id])
 
-    render json: character
+    render json: non_playable_character
   end
 
   def create
-    character = NonPlayableCharacter.create!(character_params)
-    render json: character, status: :created
+    non_playable_character = NonPlayableCharacter.create!(non_playable_character_params)
+    render json: non_playable_character, status: :created
   end
 
   def update
-    character = NonPlayableCharacter.find(params[:id])
-    character.update!(character_params)
-    render json: character
+    non_playable_character = NonPlayableCharacter.find(params[:id])
+    non_playable_character.update!(non_playable_character_params)
+    render json: non_playable_character
   end
 
   def destroy
@@ -29,7 +29,7 @@ class NonPlayableCharactersController < ApplicationController
   
   private
   
-  def character_params
+  def non_playable_character_params
     params.permit(:name, :strength, :dexterity, :wisdom, :intelligence, :charisma, :hit_points)
   end
 end
