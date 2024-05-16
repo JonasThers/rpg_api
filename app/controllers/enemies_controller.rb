@@ -26,6 +26,19 @@ class EnemiesController < ApplicationController
     Enemy.find(params[:id]).destroy
     head :no_content
   end
+
+  def inflict_damage
+    enemy = Enemy.find(params[:id])
+
+    enemy.hit_points -= params[:damage].to_i
+    enemy.save!
+    
+    if enemy.hit_points <= 0
+      enemy_dies(enemy)
+    end
+
+    render json: enemy
+  end
   
   private
   
@@ -33,7 +46,9 @@ class EnemiesController < ApplicationController
     params.permit(:name, :strength, :dexterity, :wisdom, :intelligence, :charisma, :hit_points)
   end
 
-  def inflict_damage
+  def enemy_dies(enemy)
+    enemy.is_alive = false
 
+    enemy.save!
   end
 end

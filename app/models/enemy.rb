@@ -5,5 +5,5 @@ class Enemy < ApplicationRecord
     validates :wisdom, presence: true
     validates :intelligence, presence: true
     validates :charisma, presence: true
-    validates :hit_points, presence: true, numericality: { greater_than: 0 }
+    validates :hit_points, presence: true
 end
