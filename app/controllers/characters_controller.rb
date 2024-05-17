@@ -27,6 +27,15 @@ class CharactersController < ApplicationController
     head :no_content
   end
 
+  def gain_experience
+    character = Character.find(params[:id])
+
+    character.experience += params[:experience].to_i
+    character.save!
+
+    render json: character
+  end
+
   def inflict_damage
     character = Character.find(params[:id])
 
